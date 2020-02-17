@@ -1,0 +1,15 @@
+{
+    "name": "philipp/fb-feed",
+    "description": "A Facebook feed for Wordpress respecting privacy",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Philipp Zedler",
+            "email": "philipp@neue-musik.com"
+        }
+    ],
+    "require": {
+        "facebook/graph-sdk": "^5.7"
+    }
+}

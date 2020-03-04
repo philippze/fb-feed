@@ -7,6 +7,7 @@
  * Author URI: https://www.zedler.it
  */
 
+require_once __DIR__ . '/vendor/autoload.php';
 
 function fb_feed_post_init() {
   $args = array(

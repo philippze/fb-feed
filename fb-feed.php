@@ -7,8 +7,6 @@
  * Author URI: https://www.zedler.it
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
-
 function fb_feed_post_init() {
   $args = array(
     'public' => TRUE,
@@ -59,3 +57,5 @@ function fb_feed_excerpt_length($length) {
     return $length;
 }
 add_filter('excerpt_length', 'fb_feed_excerpt_length');
+
+require_once(__DIR__ . '/cron.php');

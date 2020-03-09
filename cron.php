@@ -4,8 +4,17 @@ use Facebook\Facebook;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+function fb_feed_url_get_contents($url) {
+  $curlSession = curl_init();
+  curl_setopt($curlSession, CURLOPT_URL, $url);
+  curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+  curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+  $data = curl_exec($curlSession);
+  curl_close($curlSession);
+  return $data;
+}
+
 function fb_feed_fetch_posts() {
-  //error_log('This is the cron');
   $fb = new Facebook([
     'app_id' => FB_FEED_APP_ID,
     'app_secret' => FB_FEED_APP_SECRET,
@@ -41,7 +50,7 @@ function fb_feed_fetch_posts() {
 
     ]);
 
-    $thumbnail_bits = file_get_contents($thumbnail_url);
+    $thumbnail_bits = fb_feed_url_get_contents($thumbnail_url);
     $thumbnail_name = substr($message, 0, 20) . '.jpg';
     $upload_file = wp_upload_bits($thumbnail_name, null, $thumbnail_bits);
     if (!$upload_file['error']) {

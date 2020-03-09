@@ -20,7 +20,7 @@ function fb_feed_fetch_posts() {
   $response_body = $response->getDecodedBody();
   $data = $response_body['data'];
 
-  foreach($data as $item) {
+  foreach(array_reverse($data) as $item) {
     if (!array_key_exists('permalink_url', $item)) {
       continue;
     }
@@ -61,6 +61,7 @@ function fb_feed_fetch_posts() {
         set_post_thumbnail($post_id, $attachment_id);
       }
     }
+    sleep(2);  // Create differing timestamps.
   }
 }
 

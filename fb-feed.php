@@ -22,7 +22,7 @@ add_action( 'init', 'fb_feed_post_init' );
 function get_fb_feed() {
   $args = [
     'post_type' => 'fb_feed',
-    'nopaging' => TRUE,
+    'paged' => TRUE,
     'posts_per_page' => 3,
   ];
   ob_start();

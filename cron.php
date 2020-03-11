@@ -22,7 +22,7 @@ function fb_feed_fetch_posts() {
   ]);
 
   $response = $fb->get(
-    FB_FEED_PAGE_ID . '/posts?fields=permalink_url,message,full_picture&limit=10',
+    FB_FEED_PAGE_ID . '/posts?fields=permalink_url,message,full_picture&limit=3',
     FB_FEED_ACCESS_TOKEN
   );
 

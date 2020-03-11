@@ -51,7 +51,7 @@ function fb_feed_fetch_posts() {
     ]);
 
     $thumbnail_bits = fb_feed_url_get_contents($thumbnail_url);
-    $thumbnail_name = substr($message, 0, 20) . '.jpg';
+    $thumbnail_name = sanitize_title_with_dashes(substr($message, 0, 20)) . '.jpg';
     $upload_file = wp_upload_bits($thumbnail_name, null, $thumbnail_bits);
     if (!$upload_file['error']) {
       $wp_filetype = wp_check_filetype($thumbnail_name, null );

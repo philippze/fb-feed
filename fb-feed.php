@@ -12,7 +12,7 @@ function fb_feed_post_init() {
     'public' => TRUE,
     'label'  => 'Facebook Feed',
     'supports' => ['title', 'thumbnail', 'editor'],
-    'show_in_menu' => TRUE,
+    'show_in_menu' => FALSE,
   );
   register_post_type( 'fb_feed', $args );
 }

@@ -11,7 +11,7 @@ function fb_feed_post_init() {
   $args = array(
     'public' => TRUE,
     'label'  => 'Facebook Feed',
-    'supports' => ['title', 'thumbnail'],
+    'supports' => ['title', 'thumbnail', 'editor'],
     'show_in_menu' => TRUE,
   );
   register_post_type( 'fb_feed', $args );
